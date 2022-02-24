@@ -10,14 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
 
-    private String[] localDataSet;
+    private final String[] localDataSet;
+    private final RecycleViewClickListener clickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final TextView textView;
+        private final RecycleViewClickListener clickListener;
 
-        public ViewHolder(View view) {
+        public ViewHolder(View view, RecycleViewClickListener clickListener) {
             super(view);
+
+            this.clickListener = clickListener;
 
             view.setOnClickListener(this);
             this.textView = (TextView)view.findViewById(R.id.textView);
@@ -26,7 +30,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), this.textView.getText(), Toast.LENGTH_SHORT).show();
+            this.clickListener.recycleViewOnClick(view, this.getLayoutPosition());
         }
 
         public TextView getTextView() {
@@ -34,9 +38,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }
     }
 
-    public RecycleViewAdapter(String[] dataSet) {
+    public RecycleViewAdapter(String[] dataSet, RecycleViewClickListener clickListener) {
 
         this.localDataSet = dataSet;
+
+        this.clickListener = clickListener;
     }
 
     @Override
@@ -44,7 +50,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.recycleview_item_layout, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, this.clickListener);
     }
 
     @Override

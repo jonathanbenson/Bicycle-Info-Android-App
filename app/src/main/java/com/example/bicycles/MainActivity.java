@@ -13,7 +13,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    public static void start(Context context, String state) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("state", state);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = this.getIntent();
+        Bundle bundle = this.getIntent().getExtras();
 
-        if (intent.getStringExtra("mainActivityState") == null || intent.getStringExtra("mainActivityState") == "listView")
+        if (bundle == null || bundle.getString("mainActivityState") == "listView")
             this.loadFragment(new ListViewFragment());
         else
             this.loadFragment(new RecycleViewFragment());

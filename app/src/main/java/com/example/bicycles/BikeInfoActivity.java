@@ -43,12 +43,8 @@ public class BikeInfoActivity extends AppCompatActivity {
 
     public void goBack() {
 
-        Intent previousIntent = this.getIntent();
+        String prevMainActivityState = this.getIntent().getExtras().getString("mainActivityState");
 
-        Intent intent = new Intent(this, MainActivity.class);
-
-        intent.putExtra("mainActivityState", previousIntent.getStringExtra("mainActivityState"));
-
-        this.startActivity(intent);
+        MainActivity.start(this, "listView");
     }
 }

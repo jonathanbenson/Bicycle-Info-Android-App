@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Use the {@link ListViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListViewFragment extends Fragment {
+public class ListViewFragment extends Fragment implements BikeInfoActivityLoader {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -108,4 +108,6 @@ public class ListViewFragment extends Fragment {
         this.startActivity(intent);
 
     }
+
+
 }

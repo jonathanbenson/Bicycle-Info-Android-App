@@ -1,5 +1,7 @@
 package com.example.bicycles;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
  * Use the {@link RecycleViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecycleViewFragment extends Fragment {
+public class RecycleViewFragment extends Fragment implements RecycleViewClickListener, BikeInfoActivityLoader {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,12 +91,27 @@ public class RecycleViewFragment extends Fragment {
         this.items = getResources().getStringArray(R.array.bicycle_names);
         this.recycleView = view.findViewById(R.id.recycleView1);
 
-        this.adapter = new RecycleViewAdapter(this.items);
+        this.adapter = new RecycleViewAdapter(this.items, this);
         this.recycleView.setAdapter(this.adapter);
 
         this.recycleView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        this.adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void recycleViewOnClick(View view, int position) {
+        this.loadBikeInfoActivity(position);
+    }
+
+    public void loadBikeInfoActivity(int position) {
+
+        Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
+
+        intent.putExtra("mainActivityState", "recycleView");
+        intent.putExtra("bikeIndex", position);
+
+        this.startActivity(intent);
 
     }
 
