@@ -16,11 +16,17 @@ public class BikeInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bike_info);
 
+        Intent intent = this.getIntent();
+        int bikeIndex = intent.getIntExtra("bikeIndex", 0);
+
+        String bikeTitle = getResources().getStringArray(R.array.bicycle_names)[bikeIndex];
+        String bikeDescription = getResources().getStringArray(R.array.bicycle_descriptions)[bikeIndex];
+
         TextView bikeTitleView = this.findViewById(R.id.bikeTitle);
-        bikeTitleView.setText("bike title");
+        bikeTitleView.setText(bikeTitle);
 
         TextView bikeDescriptionView = this.findViewById(R.id.bikeDescription);
-        bikeDescriptionView.setText("bike description");
+        bikeDescriptionView.setText(bikeDescription);
 
         Button backButton = this.findViewById(R.id.backButton);
 

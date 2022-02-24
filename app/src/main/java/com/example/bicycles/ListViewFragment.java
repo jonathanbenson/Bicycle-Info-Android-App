@@ -84,9 +84,7 @@ public class ListViewFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String value = adapter.getItem(position);
-
-                currentFragment.loadBikeInfoActivity();
+                currentFragment.loadBikeInfoActivity(position);
             }
         });
 
@@ -100,11 +98,12 @@ public class ListViewFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_list_view, container, false);
     }
 
-    public void loadBikeInfoActivity() {
+    public void loadBikeInfoActivity(int position) {
 
         Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
 
         intent.putExtra("mainActivityState", "listView");
+        intent.putExtra("bikeIndex", position);
 
         this.startActivity(intent);
 
