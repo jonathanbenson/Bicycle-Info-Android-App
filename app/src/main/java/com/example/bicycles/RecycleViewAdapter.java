@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,15 +12,21 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     private String[] localDataSet;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final TextView textView;
 
         public ViewHolder(View view) {
             super(view);
 
+            view.setOnClickListener(this);
             this.textView = (TextView)view.findViewById(R.id.textView);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(view.getContext(), this.textView.getText(), Toast.LENGTH_SHORT).show();
         }
 
         public TextView getTextView() {
