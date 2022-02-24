@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class ListViewFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ArrayList<String> listItems = new ArrayList<String>();
+    private String[] items;
     private ArrayAdapter<String> adapter;
 
     private ListView listView;
@@ -66,14 +68,24 @@ public class ListViewFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        this.adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, this.listItems);
+
+        this.items = getResources().getStringArray(R.array.bicycle_names);
+
+        this.adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, this.items);
         this.listView = (ListView) this.getView().findViewById(R.id.listView1);
 
         System.out.println(this.listView);
         this.listView.setAdapter(this.adapter);
 
-        this.listItems.add("New item");
-        this.adapter.notifyDataSetChanged();
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String value = adapter.getItem(position);
+                Toast.makeText(getContext(), value, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

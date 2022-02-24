@@ -3,10 +3,17 @@ package com.example.bicycles;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,12 @@ public class RecycleViewFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    private ArrayList<String> items = new ArrayList<String>();
+    private RecyclerView.Adapter adapter;
+
+    private RecyclerView recycleView;
 
     public RecycleViewFragment() {
         // Required empty public constructor
@@ -60,5 +73,17 @@ public class RecycleViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recycle_view, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        this.recycleView = (RecyclerView) this.getView().findViewById(R.id.recycleView1);
+
+
+
+        this.items.add("New item");
+        this.adapter.notifyDataSetChanged();
+
     }
 }
