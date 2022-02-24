@@ -20,22 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecycleViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RecycleViewFragment extends Fragment implements RecycleViewClickListener, BikeInfoActivityLoader {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
 
     private String[] items;
 
@@ -48,31 +33,15 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RecycleViewFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RecycleViewFragment newInstance(String param1, String param2) {
+
+    public static RecycleViewFragment newInstance() {
         RecycleViewFragment fragment = new RecycleViewFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -105,17 +74,9 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
     }
 
     public void loadBikeInfoActivity(int position) {
-
-        Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
-
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-        intent.putExtra("mainActivityState", "recycleView");
-        intent.putExtra("bikeIndex", position);
-
-        this.startActivity(intent);
-
+        // Starts the BikeInfoActivity based on which bike was selected
+        // position = the index of the bike in the list
+        BikeInfoActivity.start(this.getContext(), "recycleView", position);
     }
 
 

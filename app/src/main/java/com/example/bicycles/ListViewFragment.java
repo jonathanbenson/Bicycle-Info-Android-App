@@ -15,21 +15,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ListViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ListViewFragment extends Fragment implements BikeInfoActivityLoader {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private String[] items;
     private ArrayAdapter<String> adapter;
@@ -40,48 +27,33 @@ public class ListViewFragment extends Fragment implements BikeInfoActivityLoader
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListViewFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ListViewFragment newInstance(String param1, String param2) {
+    public static ListViewFragment newInstance() {
         ListViewFragment fragment = new ListViewFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Populates the list view with the names of the bicycles
 
+        // Get the list of bicycles from a string array in res/values/string.xml
         this.items = getResources().getStringArray(R.array.bicycle_names);
 
+        // Create and set an adapter for the list view to facilitate adding items
         this.adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, this.items);
         this.listView = (ListView) this.getView().findViewById(R.id.listView1);
-
-        System.out.println(this.listView);
         this.listView.setAdapter(this.adapter);
 
         ListViewFragment currentFragment = this;
 
+        // Create an onClick event listener for each item in the list view
+        // It will start a new BikeInfoActivity to display the relevant information about the bike that was clicked on
         this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 currentFragment.loadBikeInfoActivity(position);
@@ -99,17 +71,9 @@ public class ListViewFragment extends Fragment implements BikeInfoActivityLoader
     }
 
     public void loadBikeInfoActivity(int position) {
-
-        Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
-
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-        intent.putExtra("mainActivityState", "listView");
-        intent.putExtra("bikeIndex", position);
-
-        this.startActivity(intent);
-
+        // Starts the BikeInfoActivity based on which bike was selected
+        // position = the index of the bike in the list
+        BikeInfoActivity.start(this.getContext(), "listView", position);
     }
 
 
