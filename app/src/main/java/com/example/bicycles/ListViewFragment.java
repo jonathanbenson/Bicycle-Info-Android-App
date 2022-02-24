@@ -27,10 +27,6 @@ public class ListViewFragment extends Fragment implements BikeInfoActivityLoader
         // Required empty public constructor
     }
 
-    public static ListViewFragment newInstance() {
-        ListViewFragment fragment = new ListViewFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

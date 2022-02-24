@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,17 +28,12 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
     private RecyclerView recycleView;
     private RecycleViewAdapter adapter;
 
-    RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager;
 
     public RecycleViewFragment() {
         // Required empty public constructor
     }
 
-
-    public static RecycleViewFragment newInstance() {
-        RecycleViewFragment fragment = new RecycleViewFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,15 +50,18 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        this.layoutManager = new LinearLayoutManager(this.getActivity());
-
-
+        // Retrieve the names of the bicycle types
         this.items = getResources().getStringArray(R.array.bicycle_names);
+
+        // Get the recycler view that will hold the names of the bicycles
         this.recycleView = view.findViewById(R.id.recycleView1);
 
+        // Initialize and set the adapter for the recycler view
         this.adapter = new RecycleViewAdapter(this.items, this);
         this.recycleView.setAdapter(this.adapter);
 
+        // Initialize and set the layout manager to manage the recycler view
+        this.layoutManager = new LinearLayoutManager(this.getActivity());
         this.recycleView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
 
@@ -70,9 +69,11 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
 
     @Override
     public void recycleViewOnClick(View view, int position) {
+        // Handles the onClick event of an item in the recycler view
         this.loadBikeInfoActivity(position);
     }
 
+    @Override
     public void loadBikeInfoActivity(int position) {
         // Starts the BikeInfoActivity based on which bike was selected
         // position = the index of the bike in the list
