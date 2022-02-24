@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
 
-        if (intent.getStringExtra("mainActivityState") == null ||intent.getStringExtra("mainActivityState") == "listView")
+        if (intent.getStringExtra("mainActivityState") == null || intent.getStringExtra("mainActivityState") == "listView")
             this.loadFragment(new ListViewFragment());
         else
             this.loadFragment(new RecycleViewFragment());
