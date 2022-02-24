@@ -3,6 +3,8 @@ package com.example.bicycles;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -35,6 +37,9 @@ public class RecycleViewFragment extends Fragment {
     private String[] items;
 
     private RecyclerView recycleView;
+    private RecycleViewAdapter adapter;
+
+    RecyclerView.LayoutManager layoutManager;
 
     public RecycleViewFragment() {
         // Required empty public constructor
@@ -77,9 +82,21 @@ public class RecycleViewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
+        this.layoutManager = new LinearLayoutManager(this.getActivity());
+
+
         this.items = getResources().getStringArray(R.array.bicycle_names);
         this.recycleView = view.findViewById(R.id.recycleView1);
 
+        this.adapter = new RecycleViewAdapter(this.items);
+        this.recycleView.setAdapter(this.adapter);
+
+        this.recycleView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        this.adapter.notifyDataSetChanged();
+
     }
+
+
 
 }
