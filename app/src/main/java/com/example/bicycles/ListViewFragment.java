@@ -1,5 +1,6 @@
 package com.example.bicycles;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -77,12 +78,15 @@ public class ListViewFragment extends Fragment {
         System.out.println(this.listView);
         this.listView.setAdapter(this.adapter);
 
+        ListViewFragment currentFragment = this;
+
         this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String value = adapter.getItem(position);
-                Toast.makeText(getContext(), value, Toast.LENGTH_SHORT).show();
+
+                currentFragment.loadBikeInfoActivity();
             }
         });
 
@@ -94,5 +98,15 @@ public class ListViewFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list_view, container, false);
+    }
+
+    public void loadBikeInfoActivity() {
+
+        Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
+
+        intent.putExtra("mainActivityState", "listView");
+
+        this.startActivity(intent);
+
     }
 }

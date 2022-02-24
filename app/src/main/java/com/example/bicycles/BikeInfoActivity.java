@@ -10,13 +10,6 @@ import android.widget.TextView;
 
 public class BikeInfoActivity extends AppCompatActivity {
 
-    private String bikeTitle, bikeDescription;
-
-
-    public BikeInfoActivity(String title, String description) {
-        this.bikeTitle = title;
-        this.bikeDescription = description;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +17,10 @@ public class BikeInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bike_info);
 
         TextView bikeTitleView = this.findViewById(R.id.bikeTitle);
-        bikeTitleView.setText(this.bikeTitle);
+        bikeTitleView.setText("bike title");
 
         TextView bikeDescriptionView = this.findViewById(R.id.bikeDescription);
-        bikeDescriptionView.setText(this.bikeDescription);
+        bikeDescriptionView.setText("bike description");
 
         Button backButton = this.findViewById(R.id.backButton);
 
