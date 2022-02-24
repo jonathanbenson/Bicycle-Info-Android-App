@@ -102,6 +102,9 @@ public class ListViewFragment extends Fragment implements BikeInfoActivityLoader
 
         Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
 
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
         intent.putExtra("mainActivityState", "listView");
         intent.putExtra("bikeIndex", position);
 

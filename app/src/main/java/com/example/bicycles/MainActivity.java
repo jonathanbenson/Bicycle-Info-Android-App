@@ -15,7 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static void start(Context context, String state) {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("state", state);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        intent.putExtra("mainActivityState", state);
         context.startActivity(intent);
     }
 
@@ -44,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
 
+
         if (bundle == null || bundle.getString("mainActivityState") == "listView")
             this.loadFragment(new ListViewFragment());
-        else
+        else if (bundle.getString("mainActivityState") == "recycleView")
             this.loadFragment(new RecycleViewFragment());
 
     }

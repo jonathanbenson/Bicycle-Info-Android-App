@@ -108,6 +108,9 @@ public class RecycleViewFragment extends Fragment implements RecycleViewClickLis
 
         Intent intent = new Intent(this.getContext(), BikeInfoActivity.class);
 
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
         intent.putExtra("mainActivityState", "recycleView");
         intent.putExtra("bikeIndex", position);
 
