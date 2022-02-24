@@ -1,11 +1,13 @@
 package com.example.bicycles;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BikeInfoActivity extends AppCompatActivity {
@@ -28,6 +30,13 @@ public class BikeInfoActivity extends AppCompatActivity {
         TextView bikeDescriptionView = this.findViewById(R.id.bikeDescription);
         bikeDescriptionView.setText(bikeDescription);
 
+        try {
+            this.populateImage(bikeTitle);
+        }
+        catch(Exception exc) {
+            // do nothing
+        }
+
         Button backButton = this.findViewById(R.id.backButton);
 
         BikeInfoActivity currentActivity = this;
@@ -47,4 +56,11 @@ public class BikeInfoActivity extends AppCompatActivity {
 
         MainActivity.start(this, "listView");
     }
+
+    private void populateImage(String bikeTitle) {
+        ImageView imageView = this.findViewById(R.id.bikeImage);
+        imageView.setImageDrawable(ContextCompat.getDrawable(this, this.getResources().
+                getIdentifier(bikeTitle.replaceAll(" ", "_").toLowerCase(), "drawable", this.getPackageName())));
+    }
+
 }
