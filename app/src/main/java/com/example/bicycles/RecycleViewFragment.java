@@ -32,8 +32,7 @@ public class RecycleViewFragment extends Fragment {
     private String mParam2;
 
 
-    private ArrayList<String> items = new ArrayList<String>();
-    private RecyclerView.Adapter adapter;
+    private String[] items;
 
     private RecyclerView recycleView;
 
@@ -78,12 +77,9 @@ public class RecycleViewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        this.recycleView = (RecyclerView) this.getView().findViewById(R.id.recycleView1);
-
-
-
-        this.items.add("New item");
-        this.adapter.notifyDataSetChanged();
+        this.items = getResources().getStringArray(R.array.bicycle_names);
+        this.recycleView = view.findViewById(R.id.recycleView1);
 
     }
+
 }

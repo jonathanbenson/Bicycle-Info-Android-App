@@ -1,6 +1,7 @@
 package com.example.bicycles;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
@@ -21,17 +22,26 @@ public class MainActivity extends AppCompatActivity {
 
         listViewButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                currentActivity.loadListViewFragment();
+                currentActivity.loadFragment(new ListViewFragment());
             }
         });
 
+        Button recycleViewButton = this.findViewById(R.id.recycleViewButton);
+
+        recycleViewButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                currentActivity.loadFragment(new RecycleViewFragment());
+            }
+        });
+
+        this.loadFragment(new ListViewFragment());
+
     }
 
-    private void loadListViewFragment() {
+    private void loadFragment(Fragment fragment) {
         this.getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainerView, new ListViewFragment())
+                .add(R.id.fragmentContainerView, fragment)
                 .commit();
     }
-
 
 }

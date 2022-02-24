@@ -1,18 +1,49 @@
 <resources>
     <string name="app_name">Bicycles</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string-array name="bicycle_names">
         <item>Road Bike</item>
         <item>Mountain Bike</item>
-        <item>Touring Bike</item>
-        <item>Folding Bike</item>
-        <item>Fixed Gear</item>
-        <item>BMX</item>
-        <item>Recumbent Bike</item>
-        <item>Cruiser</item>
         <item>Hybrid Bike</item>
-        <item>Cyclocross Bike</item>
+        <item>City Bike</item>
         <item>Electric Bike</item>
+        <item>Fat Tire Bike</item>
+        <item>Cargo Bikes</item>
+        <item>Folding Bike</item>
+        <item>BMX Bike</item>
+        <item>Recumbent Bike</item>
+        <item>Cruiser Bike</item>
+        <item>Adventure / Touring Bike</item>
+        <item>Fixie / Single-speed Bike</item>
+        <item>Gravel Bike</item>
+        <item>Cyclocross Bike</item>
+        <item>Klunker Bike</item>
+        <item>Tandem Bike</item>
+
+    </string-array>
+
+    <string-array name="bicycle_descriptions">
+        <item>Road bikes are one of the oldest types of bicycles, and while they have adopted advanced technology over time, they maintain much of the same design. Frames are usually lightweight aluminum or carbon, with aggressive geometry that places the rider’s legs far forward almost horizontally over the pedals. Road bicycles are defined by their thin tires and drop handlebars that allow the rider to get in a more aerodynamic position ideal for high-speed racing.</item>
+        <item>Mountain biking is arguably the most popular form of cycling these days that has exploded in popularity over the past decade. Nowadays you get a wide variety of mountain biking styles, each requiring a unique bike design with specific features. The most notable difference between mountain bikes and other bicycles is the inclusion of suspension. MTBs typically come with just a front suspension fork (hardtails) or with both front and rear suspension, more known as full-suspension mountain bikes. In very rare cases, you get some custom-made rigid MTBs with no suspension, usually for off-road touring.</item>
+        <item>Hybrid bikes gained popularity during the 90s after old-style utility roadster bikes had fallen out of fashion. Recreational cyclists and commuters wanted the convenience of a sturdy mountain bike with the reduced weight and additional speed of a road bike. Manufacturers began redesigning road bikes with stronger alloy frames, upright geometry, and straight handlebars. Over time, hybrid bikes have given rise to several variations, including commuter hybrids, cross bikes, city hybrids, and comfort bikes. Although all similar in frame design, wheels, and handlebars, each variation is slightly tweaked towards a specific use case.</item>
+        <item>City bikes are the go-to choice for those who simply need a bike to get from A to B with not too much of a hustle. Often the cheapest selection compared to other bike types, city bicycles are best suited for city riding.</item>
+        <item>Electric bicycles (e-bikes) have recently exploded in popularity, but that doesn’t mean they’re a new invention. In fact, the very first electric bicycle patent was put forward by Ogden Bolton Jr as far back as 1895. It described a standard road bike with a motor in the rear hub and a battery in the central triangle. Luckily, the number of different types of electric bikes is almost as wide as the variation of bicycles. Almost 120 years later, electric bikes still use an almost identical design, albeit with “slightly” better technology. Modern e-bikes typically have powerful motors that can achieve speeds up to 28mph (45km) and small, removable lithium-ion batteries that last the entire day on one charge. Some bikes have special frame designs to accommodate motors integrated into the bottom bracket between the cranks (mid-drive), while others have a motorized hub in the rear wheel (hub drive). </item>
+        <item>Fat tire bikes have grown in popularity over the past decade, particularly in beach towns and snow resorts. As the name suggests, fat bikes have fatter than usual tires that can ride over soft terrain like snow and sand without sinking. During the 80s when mountain bikes became popular, some adventurous riders modified single-speed balloon-tire cruisers to venture into the deep backcountry, giving rise to the precursor of fat bikes. Early fat bikes typically used common mountain bike frames with widened forks to accommodate tires up to 3″ thick. Other than the thicker tires, they usually had the same gearing systems and handlebars but often with no brakes because disc brakes didn’t exist yet and caliper brakes didn’t fit over the tires.</item>
+        <item>If you need to haul a lot of cargo but don’t have access to a car or prefer not to use one, then a cargo bike might be the solution. Many people don’t realize just how much stuff can be transported via bike and cargo bikes come in all different shapes and sizes to suit any requirements. From standard road bikes with a small front and rear basket to massive trikes big enough to carry a fridge, there’s a cargo bike for your needs!</item>
+        <item>Sailors, RV-campers, and whoever has set their goal to travel light knows the benefits of folding bicycles. A bicycle, in general, takes up a good chunk of valued space, while many of us would still want to travel with their bicycle. There are many different brands and types out there.</item>
+        <item>BMX bicycles were first designed in the late sixties, taking inspiration from motocross motorcycles. They are usually based around 20″ wheels, but 24″ wheels can be found as well. ‘Real BMX’ bikes are always made with a single-speed cassette and a rigid frame. They also have high-rise handlebars which make maneuverability easier. Two main types of BMX bicycles are designed for either racing or freestyle riding. They are very similar, but there are some tiny differences between the two. Freestyle models often have rear and front stunt pegs which make doing tricks easier. Besides the two rest of the sub-category is also known as: Freestyle, Flatland, Street, Vert, Park, Trail, Dirt jump, etc.</item>
+        <item>A recumbent bike, also known as a bent is a bicycle that allows the rider to be in a laid-back position while cycling. This position allows for the weight of the rider to be better distributed, so it reduces low back pain and other problems. It is also believed to be the most efficient way for a human being to cycle on two wheels as the position of the human body is most ergonomic towards comfort and power output.</item>
+        <item>Cruiser bikes are designed almost exclusively for casual recreational riding. They are most popular in beachside towns where cyclists use them to cruise along the boardwalk on lazy summer days. Typically, they have a laid-back, relaxed frame geometry that places the rider low down and far back on the bike. This allows for comfortable cruising but makes it more difficult to go fast or cycle uphill. </item>
+        <item>Another long-distance bike that’s commonly used among bikepacking. Somewhat similar to a gravel bike, touring bicycles are built for longevity and durability by allowing them to carry loads of bags, packs, and anything else you’ll be needing on the road.</item>
+        <item>Fixie and single-speed bikes are bicycles that have no gears, just one rear cog running off a single crankset. The term fixie is short for ‘fixed-gear and was made popular by bicycle couriers in cities like New York and London. Nowadays, there is a thriving underground fixie scene, particularly amongst young urban hipsters and students. Fixies and single-speed bikes are used almost exclusively in large cities where you seldom need to go very fast or climb steep ascents.</item>
+        <item>Gravel bikes are lightweight racing-style bikes designed for use on mild off-road terrains like dirt roads, fire roads, country lanes, and smooth singletrack. The idea is to provide a lighter, faster way of cycling in the great outdoors without the clunkiness of mountain bikes. Many people think gravel bikes are just road bikes with thicker tires, but there are actually many more differences that make these bikes ideal for off-road riding. Most notably, gravel bikes have very specific frame geometry that makes them far more comfortable when riding long distances on loose, rocky ground. They also have thicker, stronger frame materials designed to handle the abuse of rough, rocky terrain.</item>
+        <item>Cyclocross is a lesser-known cycling discipline popularized in France during the early 1900s when cyclists would race to the next town using any route possible. This would often involve cycling through fields, hopping over fences, and running up hills. Typically, the only visible landmark to aim for was the steeple of the next town’s church, giving rise to the discipline’s original name, steeplechase.</item>
+        <item>Klunker bikes are a new breed, a mixture of retro cruiser, fixie, and BMX bikes. This is a bike for the free-spirited cyclist who likes funky things and takes their time when going for stroll. The set-up on these bikes is quite basic while having all the comfort factors. The sense of riding one is definitely out of the ordinary, in a good way!</item>
+        <item>What is a Tandem bike? A tandem bicycle is generally a 2-person bicycle with two saddles and two pairs of pedals. The most typical tandem bicycle is equipped with a freewheel and a single derailleur which means that both riders can contribute the effort at the same time, or individually. Although the majority of tandem bikes are built in the way pictured above, there are also parallel tandem bikes where the bikes are welded together side by side, and tandem bikes where the cyclist sitting on the back is facing backwards.</item>
+
+
+
+
+
     </string-array>
 </resources>

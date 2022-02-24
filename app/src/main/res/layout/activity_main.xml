@@ -22,17 +22,19 @@
             android:id="@+id/listViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16px"
             android:layout_weight="1"
-            android:text="List-View"
-            android:layout_margin="16px" />
+            android:backgroundTint="#00BCD4"
+            android:text="List-View" />
 
         <Button
             android:id="@+id/recycleViewButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="16px"
             android:layout_weight="1"
-            android:text="Recycle-View"
-            android:layout_margin="16px"/>
+            android:backgroundTint="#4CAF50"
+            android:text="Recycle-View" />
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
